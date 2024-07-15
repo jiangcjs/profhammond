@@ -1,0 +1,80 @@
+using System;
+
+namespace NestedTypesExample
+{
+    // Outer class
+    public class OuterClass
+    {
+        // Nested class
+        public class NestedClass
+        {
+            public void DisplayMessage()
+            {
+                Console.WriteLine("Hello from NestedClass!");
+            }
+        }
+
+        // Nested struct
+        public struct NestedStruct
+        {
+            public int X;
+            public int Y;
+
+            public void DisplayCoordinates()
+            {
+                Console.WriteLine($"Coordinates: ({X}, {Y})");
+            }
+        }
+
+        // Nested enum
+        public enum NestedEnum
+        {
+            ValueOne,
+            ValueTwo,
+            ValueThree
+        }
+
+        // Nested interface
+        public interface INestedInterface
+        {
+            void InterfaceMethod();
+        }
+
+        // Class implementing the nested interface
+        public class NestedInterfaceImplementation : INestedInterface
+        {
+            public void InterfaceMethod()
+            {
+                Console.WriteLine("InterfaceMethod implemented in NestedInterfaceImplementation.");
+            }
+        }
+
+        public void DisplayAll()
+        {
+            // Using nested class
+            NestedClass nestedClass = new NestedClass();
+            nestedClass.DisplayMessage();
+
+            // Using nested struct
+            NestedStruct nestedStruct = new NestedStruct { X = 10, Y = 20 };
+            nestedStruct.DisplayCoordinates();
+
+            // Using nested enum
+            NestedEnum nestedEnum = NestedEnum.ValueTwo;
+            Console.WriteLine($"Enum Value: {nestedEnum}");
+
+            // Using nested interface
+            INestedInterface nestedInterface = new NestedInterfaceImplementation();
+            nestedInterface.InterfaceMethod();
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            OuterClass outerClass = new OuterClass();
+            outerClass.DisplayAll();
+        }
+    }
+}
